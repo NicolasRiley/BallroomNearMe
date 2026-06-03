@@ -43,49 +43,48 @@ export default function VenueListScreen() {
         : item.tags.includes(activeFilter)
     )
 
-
-  return (
-    <View style={[styles.card, isHighlighted && styles.cardHighlighted]}>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('VenueDetail', { venueId: item.id })}
-      >
-        <View style={styles.imagePlaceholder}>
-          <Text style={styles.imagePlaceholderText}>📍 {item.area}</Text>
+    return (
+      <View style={[styles.card, isHighlighted ? styles.cardHighlighted : undefined]}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('VenueDetail', { venueId: item.id })}
+        >
+          <View style={styles.imagePlaceholder}>
+            <Text style={styles.imagePlaceholderText}>📍 {item.area}</Text>
+          </View>
+          <View style={styles.cardBody}>
+            <View style={styles.cardHeader}>
+              <Text style={styles.venueName}>{item.name}</Text>
+              <Text style={styles.capacity}>Up to {item.capacity}</Text>
+            </View>
+            <Text style={styles.area}>{item.area}</Text>
+            <View style={styles.cardFooter}>
+              <Text style={styles.rating}>⭐ {item.rating} ({item.reviewCount})</Text>
+              <Text style={styles.price}>From £{item.pricePerHour}/hr</Text>
+            </View>
+            {item.isSaved && <Text style={styles.saved}>♥ Saved</Text>}
+            <View style={styles.tagRow}>
+              {item.tags.slice(0, 3).map(tag => (
+                <View
+                  key={tag}
+                  style={[styles.tag, activeFilter === tag && styles.tagActive]}
+                >
+                  <Text style={[styles.tagText, activeFilter === tag && styles.tagTextActive]}>
+                    {tag}
+                  </Text>
+                </View>
+              ))}
+            </View>
+          </View>
+        </TouchableOpacity>
+        <View style={styles.safetyRow}>
+          <SafetyBadge 
+            safety={item.safety} 
+            onPress={() => setActiveSafetyVenue(item)} 
+          />
         </View>
-        <View style={styles.cardBody}>
-          <View style={styles.cardHeader}>
-            <Text style={styles.venueName}>{item.name}</Text>
-            <Text style={styles.capacity}>Up to {item.capacity}</Text>
-          </View>
-          <Text style={styles.area}>{item.area}</Text>
-          <View style={styles.cardFooter}>
-            <Text style={styles.rating}>⭐ {item.rating} ({item.reviewCount})</Text>
-            <Text style={styles.price}>From £{item.pricePerHour}/hr</Text>
-          </View>
-          {item.isSaved && <Text style={styles.saved}>♥ Saved</Text>}
-          <View style={styles.tagRow}>
-            {item.tags.slice(0, 3).map(tag => (
-              <View
-                key={tag}
-                style={[styles.tag, activeFilter === tag && styles.tagActive]}
-              >
-                <Text style={[styles.tagText, activeFilter === tag && styles.tagTextActive]}>
-                  {tag}
-                </Text>
-              </View>
-            ))}
-          </View>
-        </View>
-      </TouchableOpacity>
-      <View style={styles.safetyRow}>
-        <SafetyBadge 
-          safety={item.safety} 
-          onPress={() => setActiveSafetyVenue(item)} 
-        />
       </View>
-    </View>
-  )
-}
+    )
+  }
 
   return (
     <View style={styles.container}>
