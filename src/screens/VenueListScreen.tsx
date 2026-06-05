@@ -1,6 +1,6 @@
 import SafetyBadge from '../components/SafetyBadge'
 import SafetyModal from '../components/SafetyModal'
-import { View, Text, FlatList, TouchableOpacity, ScrollView, StyleSheet } from 'react-native'
+import { View, Text, FlatList, TouchableOpacity, ScrollView, StyleSheet, Image } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { useState } from 'react'
@@ -49,7 +49,11 @@ export default function VenueListScreen() {
           onPress={() => navigation.navigate('VenueDetail', { venueId: item.id })}
         >
           <View style={styles.imagePlaceholder}>
-            <Text style={styles.imagePlaceholderText}>📍 {item.area}</Text>
+            {item.images[0] ? (
+              <Image source={item.images[0]} style={styles.cardImage} resizeMode="cover" />
+            ) : (
+              <Text style={styles.imagePlaceholderText}>📍 {item.area}</Text>
+            )}
           </View>
           <View style={styles.cardBody}>
             <View style={styles.cardHeader}>
@@ -280,5 +284,9 @@ const styles = StyleSheet.create({
   safetyRow: {
   paddingHorizontal: 16,
   paddingBottom: 14,
+  },
+  cardImage: {
+  width: '100%',
+  height: '100%',
   },
 })

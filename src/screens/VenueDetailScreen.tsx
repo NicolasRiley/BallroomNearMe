@@ -2,6 +2,7 @@ import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image } from 'rea
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { useState } from 'react'
 import { venues } from '../data/venues'
+import { useSavedVenues } from '../hooks/useSavedVenues'
 import SafetyBadge from '../components/SafetyBadge'
 import SafetyModal from '../components/SafetyModal'
 
@@ -10,10 +11,11 @@ export default function VenueDetailScreen() {
   const route = useRoute<any>()
   const venue = venues.find(v => v.id === route.params?.venueId)
   const [safetyVisible, setSafetyVisible] = useState(false)
+  const { isSaved, toggleSaved } = useSavedVenues()
 
   if (!venue) {
     return (
-      <View style={styles.notFound}>
+     <View style={styles.notFound}>
         <Text>Venue not found</Text>
       </View>
     )
@@ -34,8 +36,8 @@ export default function VenueDetailScreen() {
         >
           <Text style={styles.backButtonText}>‹</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.saveButton}>
-          <Text style={styles.saveButtonText}>♡</Text>
+        <TouchableOpacity style={styles.saveButton} onPress={() => toggleSaved(venue.id)}>
+          <Text style={styles.saveButtonText}>{isSaved(venue.id) ? '♥' : '♡'}</Text>
         </TouchableOpacity>
       </View>
 
