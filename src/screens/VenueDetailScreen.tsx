@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { useState } from 'react'
 import { venues } from '../data/venues'
@@ -23,6 +23,11 @@ export default function VenueDetailScreen() {
     <View style={styles.container}>
 
       <View style={styles.imageArea}>
+        {venue.images[0] ? (
+          <Image source={venue.images[0]} style={styles.image} resizeMode="cover" />
+        ) : (
+          <Text style={styles.imagePlaceholderText}>📍 {venue.area}</Text>
+        )}
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => navigation.goBack()}
@@ -32,7 +37,6 @@ export default function VenueDetailScreen() {
         <TouchableOpacity style={styles.saveButton}>
           <Text style={styles.saveButtonText}>♡</Text>
         </TouchableOpacity>
-        <Text style={styles.imagePlaceholderText}>📍 {venue.area}</Text>
       </View>
 
       <ScrollView style={styles.scrollArea}>
@@ -252,5 +256,9 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: '600',
+  },
+  image: {
+  width: '100%',
+  height: '100%',
   },
 })

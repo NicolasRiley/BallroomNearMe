@@ -34,7 +34,7 @@ export type Venue = {
   tags: string[]
   suitableFor: EventType[]
   isLgbtqVerified: boolean
-  images: string[]
+  images: any[]
   latitude: number
   longitude: number
   isSaved: boolean
