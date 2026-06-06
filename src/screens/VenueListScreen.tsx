@@ -96,6 +96,9 @@ export default function VenueListScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.headerRow}>
+        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          <Text style={styles.backButtonText}>‹</Text>
+        </TouchableOpacity>
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -151,6 +154,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    paddingTop: 100,
     paddingRight: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#f0f0f0',
@@ -264,6 +268,21 @@ const styles = StyleSheet.create({
   tagTextActive: {
     color: '#fff',
     fontWeight: '600',
+  },
+  backButton: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: '#f0f0f0',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 8,
+    marginRight: 4,
+  },
+  backButtonText: {
+    fontSize: 24,
+    color: '#1a1a2e',
+    lineHeight: 28,
   },
   mapButton: {
     backgroundColor: '#fff',

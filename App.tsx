@@ -20,10 +20,10 @@ const Stack = createNativeStackNavigator()
 function SearchStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="VenueList" component={VenueListScreen} />
+      <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="VenueList" component={VenueListScreen} options={{ headerShown: false }} />
       <Stack.Screen name="VenueDetail" component={VenueDetailScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="VenueMap" component={VenueMapScreen} />
+      <Stack.Screen name="VenueMap" component={VenueMapScreen} options={{ headerShown: false }} />
       <Stack.Screen name="DatePicker" component={DatePickerScreen} options={{ headerShown: false }} />
       <Stack.Screen name="BookingSummary" component={BookingSummaryScreen} options={{ headerShown: false }} />
     </Stack.Navigator>
@@ -34,8 +34,8 @@ function AccountStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="AccountHome" component={AccountScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="Payments" component={PaymentsScreen} />
-      <Stack.Screen name="BookingHistory" component={BookingHistoryScreen} options={{ title: 'Booking history' }} />
+      <Stack.Screen name="Payments" component={PaymentsScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="BookingHistory" component={BookingHistoryScreen} options={{ headerShown: false }} />
     </Stack.Navigator>
   )
 }
@@ -59,6 +59,7 @@ export default function App() {
                 return <Ionicons name={focused ? 'person' : 'person-outline'} size={size} color={color} />
               }
             },
+            headerShown: false,
             tabBarActiveTintColor: '#c1603a',
             tabBarInactiveTintColor: '#999',
           })}

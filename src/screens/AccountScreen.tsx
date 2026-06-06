@@ -87,7 +87,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
   },
   content: {
-    padding: 16,
+    paddingHorizontal: 16,
+    paddingTop:100,
+    paddingBottom: 16,
     gap: 16,
   },
   card: {

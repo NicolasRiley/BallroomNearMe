@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    top: 52,
+    top: 60,
     left: 16,
     width: 36,
     height: 36,
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
   },
   saveButton: {
     position: 'absolute',
-    top: 52,
+    top: 60,
     right: 16,
     width: 36,
     height: 36,
