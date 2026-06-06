@@ -1,5 +1,6 @@
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { useState } from 'react'
 import { venues } from '../data/venues'
 import { useSavedVenues } from '../hooks/useSavedVenues'
@@ -7,7 +8,7 @@ import SafetyBadge from '../components/SafetyBadge'
 import SafetyModal from '../components/SafetyModal'
 
 export default function VenueDetailScreen() {
-  const navigation = useNavigation()
+  const navigation = useNavigation<NativeStackNavigationProp<any>>()
   const route = useRoute<any>()
   const venue = venues.find(v => v.id === route.params?.venueId)
   const [safetyVisible, setSafetyVisible] = useState(false)
@@ -94,7 +95,10 @@ export default function VenueDetailScreen() {
       </ScrollView>
 
       <View style={styles.footer}>
-        <TouchableOpacity style={styles.bookButton}>
+        <TouchableOpacity 
+          style={styles.bookButton}
+          onPress={() => navigation.navigate('DatePicker', { venueId: venue.id })}
+        >
           <Text style={styles.bookButtonText}>Request to book</Text>
         </TouchableOpacity>
       </View>

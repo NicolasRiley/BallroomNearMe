@@ -11,6 +11,8 @@ import SavedScreen from './src/screens/SavedScreen'
 import AccountScreen from './src/screens/AccountScreen'
 import PaymentsScreen from './src/screens/PaymentsScreen'
 import BookingHistoryScreen from './src/screens/BookingHistoryScreen'
+import DatePickerScreen from './src/screens/DatePickerScreen'
+import BookingSummaryScreen from './src/screens/BookingSummaryScreen'
 
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
@@ -22,6 +24,8 @@ function SearchStack() {
       <Stack.Screen name="VenueList" component={VenueListScreen} />
       <Stack.Screen name="VenueDetail" component={VenueDetailScreen} options={{ headerShown: false }} />
       <Stack.Screen name="VenueMap" component={VenueMapScreen} />
+      <Stack.Screen name="DatePicker" component={DatePickerScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="BookingSummary" component={BookingSummaryScreen} options={{ headerShown: false }} />
     </Stack.Navigator>
   )
 }
