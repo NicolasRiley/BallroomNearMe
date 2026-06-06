@@ -117,12 +117,6 @@ export default function VenueListScreen() {
             </TouchableOpacity>
           ))}
         </ScrollView>
-        <TouchableOpacity
-          style={styles.mapButton}
-          onPress={() => navigation.navigate('VenueMap', { eventType })}
-        >
-          <Text style={styles.mapButtonText}>🗺 Map</Text>
-        </TouchableOpacity>
       </View>
 
       <FlatList
@@ -283,19 +277,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: '#1a1a2e',
     lineHeight: 28,
-  },
-  mapButton: {
-    backgroundColor: '#fff',
-    borderWidth: 1,
-    borderColor: '#e0e0e0',
-    borderRadius: 20,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-  },
-  mapButtonText: {
-    fontSize: 14,
-    fontWeight: '500',
-    color: '#1a1a2e',
   },
   empty: {
     textAlign: 'center',

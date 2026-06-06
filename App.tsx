@@ -6,7 +6,6 @@ import { SavedContext, useSavedVenuesProvider } from './src/hooks/useSavedVenues
 import HomeScreen from './src/screens/HomeScreen'
 import VenueListScreen from './src/screens/VenueListScreen'
 import VenueDetailScreen from './src/screens/VenueDetailScreen'
-import VenueMapScreen from './src/screens/VenueMapScreen'
 import SavedScreen from './src/screens/SavedScreen'
 import AccountScreen from './src/screens/AccountScreen'
 import PaymentsScreen from './src/screens/PaymentsScreen'
@@ -23,7 +22,6 @@ function SearchStack() {
       <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
       <Stack.Screen name="VenueList" component={VenueListScreen} options={{ headerShown: false }} />
       <Stack.Screen name="VenueDetail" component={VenueDetailScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="VenueMap" component={VenueMapScreen} options={{ headerShown: false }} />
       <Stack.Screen name="DatePicker" component={DatePickerScreen} options={{ headerShown: false }} />
       <Stack.Screen name="BookingSummary" component={BookingSummaryScreen} options={{ headerShown: false }} />
     </Stack.Navigator>
