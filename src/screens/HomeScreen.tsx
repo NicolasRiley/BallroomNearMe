@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { EventType } from '../types'
@@ -33,15 +33,6 @@ export default function HomeScreen() {
             <Text style={styles.optionLabel}>{event.label}</Text>
           </TouchableOpacity>
         ))}
-      </View>
-
-      <View style={styles.searchBar}>
-        <Text style={styles.searchIcon}>🔍</Text>
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Search for venues..."
-          placeholderTextColor="#999"
-        />
       </View>
     </View>
   )
@@ -90,25 +81,6 @@ const styles = StyleSheet.create({
   optionLabel: {
     fontSize: 16,
     fontWeight: '500',
-    color: '#1a1a2e',
-  },
-  searchBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#e0e0e0',
-    borderRadius: 12,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    backgroundColor: '#f9f9f9',
-  },
-  searchIcon: {
-    marginRight: 8,
-    fontSize: 16,
-  },
-  searchInput: {
-    flex: 1,
-    fontSize: 15,
     color: '#1a1a2e',
   },
 })
