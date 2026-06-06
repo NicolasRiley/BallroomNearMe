@@ -1,8 +1,15 @@
-import { useState } from 'react'
+import { useState, useContext, createContext, useRef } from 'react'
 
-const savedIds = new Set<string>()
+type SavedContextType = {
+  isSaved: (id: string) => boolean
+  toggleSaved: (id: string) => void
+  savedVenues: Set<string>
+}
 
-export function useSavedVenues() {
+export const SavedContext = createContext<SavedContextType | null>(null)
+
+export function useSavedVenuesProvider() {
+  const savedIds = useRef(new Set<string>()).current
   const [, forceUpdate] = useState(0)
 
   const isSaved = (id: string) => savedIds.has(id)
@@ -16,7 +23,11 @@ export function useSavedVenues() {
     forceUpdate(n => n + 1)
   }
 
-  const savedVenues = savedIds
+  return { isSaved, toggleSaved, savedVenues: savedIds }
+}
 
-  return { isSaved, toggleSaved, savedVenues }
+export function useSavedVenues() {
+  const ctx = useContext(SavedContext)
+  if (!ctx) throw new Error('useSavedVenues must be used within SavedProvider')
+  return ctx
 }

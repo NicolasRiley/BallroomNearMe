@@ -10,6 +10,8 @@ import { useState } from 'react'
 import { useAuth } from '../hooks/useAuth'
 import SignInModal from '../components/SignInModal'
 import { UserPreferences } from '../types'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { useNavigation } from '@react-navigation/native'
 
 export default function AccountScreen() {
   const { user, isLoggedIn, signOut } = useAuth()
@@ -17,6 +19,7 @@ export default function AccountScreen() {
   const [preferences, setPreferences] = useState<UserPreferences>({
     lgbtqVerifiedOnly: true,
   })
+  const navigation = useNavigation<NativeStackNavigationProp<any>>()
 
   // If not logged in, show a prompt that opens the modal
   if (!isLoggedIn) {
@@ -63,12 +66,12 @@ export default function AccountScreen() {
 
       {/* My Boards + Booking History */}
       <View style={styles.card}>
-        <TouchableOpacity style={styles.row}>
-          <Text style={styles.rowLabel}>My boards</Text>
+        <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('Payments')}>
+          <Text style={styles.rowLabel}>Payments</Text>
           <Text style={styles.chevron}>›</Text>
         </TouchableOpacity>
         <View style={styles.rowDivider} />
-        <TouchableOpacity style={styles.row}>
+        <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('BookingHistory')}>
           <Text style={styles.rowLabel}>Booking history</Text>
           <Text style={styles.chevron}>›</Text>
         </TouchableOpacity>
