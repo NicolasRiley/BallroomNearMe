@@ -33,15 +33,10 @@ export type Venue = {
   responseTime: string
   tags: string[]
   suitableFor: EventType[]
-  isLgbtqVerified: boolean
   images: any[]
   latitude: number
   longitude: number
   isSaved: boolean
   size: VenueSize
   safety: SafetyInfo
-}
-
-export type UserPreferences = {
-  lgbtqVerifiedOnly: boolean
 }

@@ -3,22 +3,17 @@ import {
   Text,
   ScrollView,
   TouchableOpacity,
-  Switch,
   StyleSheet,
 } from 'react-native'
 import { useState } from 'react'
 import { useAuth } from '../hooks/useAuth'
 import SignInModal from '../components/SignInModal'
-import { UserPreferences } from '../types'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { useNavigation } from '@react-navigation/native'
 
 export default function AccountScreen() {
   const { user, isLoggedIn, signOut } = useAuth()
   const [showSignIn, setShowSignIn] = useState(false)
-  const [preferences, setPreferences] = useState<UserPreferences>({
-    lgbtqVerifiedOnly: true,
-  })
   const navigation = useNavigation<NativeStackNavigationProp<any>>()
 
   // If not logged in, show a prompt that opens the modal
@@ -75,28 +70,6 @@ export default function AccountScreen() {
           <Text style={styles.rowLabel}>Booking history</Text>
           <Text style={styles.chevron}>›</Text>
         </TouchableOpacity>
-      </View>
-
-      {/* Settings */}
-      <View style={styles.card}>
-        <Text style={styles.sectionTitle}>Settings</Text>
-        <View style={styles.rowDivider} />
-        <View style={styles.settingRow}>
-          <View style={styles.settingText}>
-            <Text style={styles.settingLabel}>Show LGBTQ+ verified spaces only</Text>
-            <Text style={styles.settingDescription}>
-              Only display venues verified as LGBTQ+ friendly
-            </Text>
-          </View>
-          <Switch
-            value={preferences.lgbtqVerifiedOnly}
-            onValueChange={val =>
-              setPreferences(prev => ({ ...prev, lgbtqVerifiedOnly: val }))
-            }
-            trackColor={{ false: '#e0e0e0', true: '#c1603a' }}
-            thumbColor="#fff"
-          />
-        </View>
       </View>
 
       {/* Sign out */}
@@ -172,26 +145,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#1a1a2e',
     paddingBottom: 12,
-  },
-  settingRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingTop: 12,
-    gap: 12,
-  },
-  settingText: {
-    flex: 1,
-  },
-  settingLabel: {
-    fontSize: 15,
-    color: '#1a1a2e',
-    fontWeight: '500',
-  },
-  settingDescription: {
-    fontSize: 13,
-    color: '#666',
-    marginTop: 2,
   },
   signOutButton: {
     alignItems: 'center',

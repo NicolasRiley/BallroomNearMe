@@ -75,11 +75,9 @@ export default function VenueDetailScreen() {
             ))}
           </View>
 
-          {venue.isLgbtqVerified && (
-            <View style={styles.lgbtqBadge}>
-              <Text style={styles.lgbtqBadgeText}>✓ LGBTQ+ verified space</Text>
-            </View>
-          )}
+          <View style={styles.lgbtqBadge}>
+            <Text style={styles.lgbtqBadgeText}>🏳️‍🌈 LGBTQ+ verified space</Text>
+          </View>
 
           <View style={styles.suitableRow}>
             <Text style={styles.sectionTitle}>Suitable for</Text>
@@ -134,7 +132,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    top: 16,
+    top: 52,
     left: 16,
     width: 36,
     height: 36,
@@ -150,7 +148,7 @@ const styles = StyleSheet.create({
   },
   saveButton: {
     position: 'absolute',
-    top: 16,
+    top: 52,
     right: 16,
     width: 36,
     height: 36,

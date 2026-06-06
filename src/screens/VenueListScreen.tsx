@@ -78,6 +78,9 @@ export default function VenueListScreen() {
                 </View>
               ))}
             </View>
+            <View style={styles.lgbtqBadge}>
+              <Text style={styles.lgbtqBadgeText}>🏳️‍🌈 LGBTQ+ verified</Text>
+            </View>
           </View>
         </TouchableOpacity>
         <View style={styles.safetyRow}>
@@ -288,5 +291,18 @@ const styles = StyleSheet.create({
   cardImage: {
   width: '100%',
   height: '100%',
+  },
+  lgbtqBadge: {
+    marginTop: 8,
+    alignSelf: 'flex-start',
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 20,
+    backgroundColor: '#fdf0ec',
+  },
+  lgbtqBadgeText: {
+    fontSize: 12,
+    color: '#c1603a',
+    fontWeight: '600',
   },
 })
