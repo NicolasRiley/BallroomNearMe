@@ -38,7 +38,6 @@ export default function AccountScreen() {
     )
   }
 
-  // Derive initials from name
   const initials = user!.name
     .split(' ')
     .map(n => n[0])
@@ -59,7 +58,7 @@ export default function AccountScreen() {
         </View>
       </View>
 
-      {/* My Boards + Booking History */}
+      {/* Payments + Booking History */}
       <View style={styles.card}>
         <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('Payments')}>
           <Text style={styles.rowLabel}>Payments</Text>
@@ -120,7 +119,7 @@ const styles = StyleSheet.create({
     color: '#1a1a2e',
   },
   userEmail: {
-    fontSize: 14,
+    fontSize: 1. ,
     color: '#666',
     marginTop: 2,
   },
@@ -141,12 +140,6 @@ const styles = StyleSheet.create({
   rowDivider: {
     height: 1,
     backgroundColor: '#f0f0f0',
-  },
-  sectionTitle: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: '#1a1a2e',
-    paddingBottom: 12,
   },
   signOutButton: {
     alignItems: 'center',

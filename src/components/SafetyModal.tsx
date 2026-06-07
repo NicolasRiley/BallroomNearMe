@@ -30,7 +30,6 @@ export default function SafetyModal({ safety, visible, onClose }: Props) {
           </View>
 
           <ScrollView showsVerticalScrollIndicator={false}>
-            {/* Area section */}
             <View style={[styles.section, { backgroundColor: colors.bg }]}>
               <View style={styles.sectionHeader}>
                 <View style={[styles.dot, { backgroundColor: colors.dot }]} />
@@ -50,7 +49,6 @@ export default function SafetyModal({ safety, visible, onClose }: Props) {
               </View>
             </View>
 
-            {/* Venue section */}
             <View style={[styles.section, { backgroundColor: colors.bg }]}>
               <View style={styles.sectionHeader}>
                 <View style={[styles.dot, { backgroundColor: colors.dot }]} />

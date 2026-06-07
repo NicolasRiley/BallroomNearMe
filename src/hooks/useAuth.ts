@@ -12,7 +12,6 @@ type AuthState = {
   signOut: () => void
 }
 
-// To test logged-out state, change initialUser to null
 const initialUser: User | null = {
   id: '1',
   name: 'Jordan Mills',

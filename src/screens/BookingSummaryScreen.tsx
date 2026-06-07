@@ -47,7 +47,7 @@ export default function BookingSummaryScreen() {
 
         <View style={styles.card}>
           <Text style={styles.sectionTitle}>Duration</Text>
-          <Text style={styles.value}>{DEFAULT_HOURS} hours (default hire block)</Text>
+          <Text style={styles.value}>{DEFAULT_HOURS} hours</Text>
         </View>
 
         <View style={styles.card}>
