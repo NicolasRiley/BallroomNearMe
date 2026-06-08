@@ -53,7 +53,7 @@ export default function BookingSummaryScreen() {
         <View style={styles.card}>
           <Text style={styles.sectionTitle}>Price breakdown</Text>
           <View style={styles.priceRow}>
-            <Text style={styles.priceLabel}>£{venue.pricePerHour}/hr × {DEFAULT_HOURS} hrs</Text>
+            <Text style={styles.priceLabel}>£{venue.pricePerHour}/hr {DEFAULT_HOURS} hrs</Text>
             <Text style={styles.priceValue}>£{subtotal}</Text>
           </View>
           <View style={styles.priceRow}>
